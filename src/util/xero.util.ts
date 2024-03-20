@@ -67,7 +67,7 @@ export class XeroService {
       if (status === 200) return data?.access_token;
       return null;
     } catch (error) {
-      console.log(error);
+      console.log(error.response);
       return null;
     }
   }
