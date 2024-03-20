@@ -6,9 +6,10 @@ import { XeroService } from 'src/util/xero.util';
 export class InvoiceService {
   constructor(private prisma: PrismaService, private xero: XeroService) {}
 
-  async getInvoices() {
-    const invoices = await this.xero.getTokenSet();
-    console.log(invoices);
+  async connectXero(code: string) {
+    const accessToken = await this.xero.getAccessTokenAC(code);
+    // const invoices = await this.xero.getAccessTokenCC();
+    console.log(accessToken);
     return {
       message: 'retrieved',
     };
