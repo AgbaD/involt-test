@@ -59,6 +59,11 @@ export class XeroService {
         },
       });
 
+      // const form = new FormData();
+      // form.append('grant_type', 'authorization_code');
+      // form.append('redirect_uri', this.redirectUri);
+      // form.append('code', code);
+      // const { data, status } = await instance.post('connect/token', form);
       const { data, status } = await instance.post('connect/token', {
         grant_type: 'authorization_code',
         redirect_uri: this.redirectUri,

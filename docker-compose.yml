@@ -1,20 +1,5 @@
 version: '3.8'
 services:
-  dev:
-      build:
-         context: .
-         dockerfile: Dockerfile
-      container_name: involt-test-dev-api
-      restart: always
-      ports:
-         - 5600:5600
-      depends_on:
-         - postgres
-      env_file:
-         - .env
-      networks:
-         - involt-test-network
-
   postgres:
      image: postgres:13-alpine
      container_name: postgresurl-involt-test

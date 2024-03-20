@@ -8,8 +8,9 @@ export class InvoiceService {
 
   async connectXero(code: string) {
     const accessToken = await this.xero.getAccessTokenAC(code);
-    // const invoices = await this.xero.getAccessTokenCC();
+    // const accessToken = await this.xero.getAccessTokenCC();
     console.log(accessToken);
+    // const invoices = await this.xero.getInvoices();
     return {
       message: 'retrieved',
     };
