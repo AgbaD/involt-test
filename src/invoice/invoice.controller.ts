@@ -17,15 +17,11 @@ export class InvoiceController {
     private response: HttpResponse,
   ) {}
 
-  @Get('/all/:code')
-  async getInvoices(
-    @GetProfile() profile: Profile,
-    @Res() res: Response,
-    @Param('code') code: string,
-  ) {
+  @Get('/')
+  async getInvoices(@GetProfile() profile: Profile, @Res() res: Response) {
     try {
-      const resp = await this.invoiceService.connectXero(code);
-      return this.response.okResponse(res, resp?.message);
+      const resp = await this.invoiceService.getInvoices(profile.id);
+      return this.response.okResponse(res, resp?.message, resp?.data);
     } catch (error) {
       return this.response.badRequestResponse(res, error?.message, error?.data);
     }

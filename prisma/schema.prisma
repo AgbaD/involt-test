@@ -26,16 +26,33 @@ model Profile {
   @@map("profiles")
 }
 
-// model Invoice {
-//   id         Int      @id @default(autoincrement())
-//   createdAt DateTime @default(now())
-//   updatedAt DateTime @updatedAt
+model Invoice {
+  id         Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-//   email      String   @unique
-//   name       String
-//   password   String
+  type String
+  invoiceI String
+  invoiceNumber String
+  reference String
+  amountDue Float
+  amountPaid Int
+  amountCredited Int
+  currencyRate Int
+  isDiscounted Boolean
+  hasAttachments Boolean
+  hasErrors Boolean
+  repeatingInvoiceID String
 
-//   buyer   Profile? @relation("buyer", fields: [buyerId], references: [id], onDelete: SetNull)
-//   buyerId Int?
+  date DateTime
+  dueDate DateTime
+  status String
+  lineAmountTypes String
+  subTotal Float
+  totalTax Float
+  total Float
+  currencyCode String
 
-// }
+  @@map("invoices")
+
+}
