@@ -69,8 +69,8 @@ const user = {
 }
 let loading = ref(false)
 
-function login(ev) {
-  ev.preventDefault()
+function login(e) {
+  e.preventDefault()
 
   loading.value = true
   store

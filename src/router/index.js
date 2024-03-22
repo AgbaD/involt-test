@@ -16,7 +16,6 @@ const router = createRouter({
       meta: { requiresAuth: true },
       children: [
         { path: '/dashboard', name: 'dashboard', component: DashboardView },
-        { path: '/invoice', name: 'invoice', component: DashboardView },
       ]
     },
     {

@@ -97,8 +97,8 @@ const user = {
 }
 let loading = ref(false)
 
-function register(ev) {
-  ev.preventDefault()
+function register(e) {
+  e.preventDefault()
 
   loading.value = true
   store
