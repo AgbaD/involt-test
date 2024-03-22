@@ -11,4 +11,10 @@ export class PrismaService extends PrismaClient {
       },
     });
   }
+
+  async cleanDataBase() {
+    if (process.env.NODE_ENV === 'production') return;
+    const models = Reflect.ownKeys(this).filter((key) => key[0] !== '_');
+    return Promise.all(models.map((model) => this[model].deleteMany()));
+  }
 }
