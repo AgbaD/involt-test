@@ -7,6 +7,11 @@ Create and update .env
 npm install
 ```
 
+## Initiate database
+```sh
+docker compose up postgres -d
+```
+
 ### Compile and Hot-Reload for Development
 
 ```sh
