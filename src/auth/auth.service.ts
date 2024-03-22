@@ -10,12 +10,19 @@ import { PrismaService } from 'src/prisma/prisma.service';
 import { LoginDto, RegisterDto } from './dto';
 import { Helper } from 'src/util';
 import { Profile } from '@prisma/client';
+import { ConfigService } from '@nestjs/config';
 import config from 'src/config';
 import { LoginRespDto, RegisterRespDto } from './dto/resp.dto';
+import { XeroService } from 'src/util/xero.util';
 
 @Injectable()
 export class AuthService {
-  constructor(private prisma: PrismaService, private jwt: JwtService) {}
+  constructor(
+    private prisma: PrismaService,
+    private jwt: JwtService,
+    private config: ConfigService,
+    private xero: XeroService,
+  ) {}
 
   async register(dto: RegisterDto): Promise<RegisterRespDto> {
     const tmpProfile = await this.prisma.profile.findFirst({
@@ -57,6 +64,29 @@ export class AuthService {
     return {
       message: 'login successful',
       data: { profile, token },
+    };
+  }
+
+  async getXeroAccessUrlSdk() {
+    const url = await this.xero.getAccessUrlSdk();
+    return { url };
+  }
+
+  async getXeroAccessUrl() {
+    return {
+      url: 'https://login.xero.com/identity/connect/authorize?response_type=code&client_id=CC34B297A86944C19603EABA07383562&redirect_uri=http://localhost:3330/api/auth/callback&scope=openid profile email accounting.transactions',
+      // url: url,
+    };
+  }
+
+  async getXeroAccessToken(code: string) {
+    const accessToken = await this.xero.getAccessToken(code);
+    if (!accessToken)
+      throw new BadRequestException('could not get access token');
+    console.log(accessToken);
+    return {
+      message: 'accessToken generated successfully',
+      data: accessToken,
     };
   }
 

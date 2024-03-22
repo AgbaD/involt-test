@@ -6,6 +6,7 @@ import { AuthController } from './auth.controller';
 import { PassportModule } from '@nestjs/passport';
 import config from 'src/config';
 import { JwtStrategy } from './strategy';
+import { XeroService } from 'src/util/xero.util';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { JwtStrategy } from './strategy';
       signOptions: { expiresIn: parseInt(config.jwt.expiresIn) },
     }),
   ],
-  providers: [AuthService, JwtStrategy, HttpResponse],
+  providers: [AuthService, JwtStrategy, HttpResponse, XeroService],
   controllers: [AuthController],
 })
 export class AuthModule {}
