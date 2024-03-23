@@ -44,7 +44,7 @@
             8,282
             </h4>
             <div class="text-gray-500">
-            New Users
+            New Invoices
             </div>
         </div>
         </div>
@@ -78,10 +78,10 @@
 
         <div class="mx-5">
             <h4 class="text-2xl font-semibold text-gray-700">
-            200,521
+            521
             </h4>
             <div class="text-gray-500">
-            Total Orders
+            Total Invoices
             </div>
         </div>
         </div>
@@ -115,10 +115,10 @@
 
         <div class="mx-5">
             <h4 class="text-2xl font-semibold text-gray-700">
-            215,542
+            542
             </h4>
             <div class="text-gray-500">
-            Available Products
+            Funded Invoices
             </div>
         </div>
         </div>
@@ -160,7 +160,7 @@
             </tr>
         </thead>
 
-        <tbody class="bg-white">
+        <!-- <tbody class="bg-white">
             <tr v-for="(u, index) in users" :key="index">
             <td
                 class="px-6 py-4 border-b border-gray-200 whitespace-nowrap"
@@ -216,7 +216,7 @@
                 <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
             </td>
             </tr>
-        </tbody>
+        </tbody> -->
         </table>
     </div>
     </div>

@@ -1,15 +1,16 @@
 <template>
-  <div class="flex -space-x-1 overflow-hidden">
+  <div class="flex m-2 overflow-hidden">
     <a
       :href="data.url"
       target="_blank"
-      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 my-3 border border-blue-500 hover:border-transparent rounded"
+      class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-s-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white"
     >
       Connect To Xero With Frontend client
     </a>
     <button
       @click="getUrl"
-      class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 my-3 border border-blue-500 hover:border-transparent rounded"
+      type="button"
+      class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-e-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white"
     >
       Connect To Xero With Backend
     </button>
@@ -30,7 +31,7 @@ const store = useStore()
 function getUrl(e) {
   e.preventDefault()
   store.getXeroAccessUrlBe().then((data) => {
-    window.location.href = data.data.url;
+    window.location.href = data.data.url
   })
 }
 </script>
