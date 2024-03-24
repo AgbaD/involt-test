@@ -12,7 +12,7 @@ export class InvoiceService {
     if (!profile) throw new NotFoundException('profile not found');
     return {
       message: '',
-      data: '',
+      data: [],
     };
   }
 }

@@ -13,12 +13,12 @@ services:
       networks:
          - involt-test-network
 
-   test-postgres:
+   tpostgres:
       image: postgres:13-alpine
-      container_name: postgresurl-involt-test-test
+      container_name: postgresurl-involt-t-test
       restart: always
       ports:
-         - 5433:5433
+         - 5432:5432
       env_file:
          - .env
       volumes:
